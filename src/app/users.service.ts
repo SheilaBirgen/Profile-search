@@ -18,7 +18,7 @@ private clientsecret: "0b8a1734e15335b7f2e88f2e9ade1e4c48069254";
   }
   getuserInfor(){
 return this.http.get("http://api.github.com/users/" +this.username +"?client_id=" +this.clientid + "?client_secret=" +this.clientsecret
-  }
+  },
   
   
 }

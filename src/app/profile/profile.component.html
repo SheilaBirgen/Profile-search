@@ -1,16 +1,66 @@
 <div class="col">
     <div class="mb-3">
-      <input type="text" class="form-control ext" placeholder="Enter Username Here" [(ngModel)]="username" name="username" (keyup)="findProfile()">
-  
+        <input type="text" class="form-control ext" placeholder="Enter Username Here" [(ngModel)]="username"
+            name="username" (keyup)="findProfile()">
+
     </div>
-  
-  </div>
-  <div *ngIf="profile">
+
+</div>
+<div *ngIf="profile">
     <div class="card panel-default">
-      <div class="card-header">
-        {{profile.name}} <small>{{profile.login}}</small>
-        <br>
-  
-        {{profile.location}}
-  
-      </div>
+        <div class="card-header">
+            {{profile.name}} <small>{{profile.login}}</small>
+            <br>
+
+            {{profile.location}}
+
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <img src="{{profile.avatar_url}}" class="rounded-circle">
+                </div>
+                <!-- //end image -->
+                <div class="col-sm-5">
+                    <ul class="list-group">
+
+                        <li class="list-group-item" *ngIf="profile.email"><a
+                                href="emailto:{{profile.email}}">{{profile.email}}</a></li>
+
+                    </ul>
+
+                </div>
+                <!-- followers-->
+                <div class="col-sm-4">
+                    <div>
+                        <p>
+                            <span class="badge badge-primary">{{profile.followers}} Followers </span>
+                            |
+                            <span class="badge badge-primary">{{profile.following}}Following </span>
+                            |
+                            <span class="badge badge-dark">{{profile.public_repos}} Public Repos</span>
+                        </p>
+                        <p><a href="{{profile.html_url}}" target="_blank" class="btn btn-success btn-sm">Open</a></p>
+                        <div class="panel panel-default">
+                            <div class="card-header">
+                                <h3 class="panel-title">Repos</h3>
+                            </div>
+                            <div class="card-body" *ngFor="let repo of repos">
+                                <p class="clearfix">
+                                    {{repo.name}} <a href="{{repo.html_url}}" target="_blank"
+                                        class="btn btn-sm btn-outline-info pull-right">Expand in Github</a>
+                                </p>
+                                <p>{{repo.description}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
