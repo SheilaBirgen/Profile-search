@@ -4,13 +4,10 @@
 
 export const environment = {
   production: false,
-  //apiUrl:"https://api.github.com/users/SheilaBirgen?access_token= + apiKey"
+  apiKey: "bbf910d340d138009fb19c8aa3459452d9340198",
+  baseUrl:"https://api.github.com/search?"
 };
-export class ProfileService{
-username :"SheilaBirgen";
-clientid :"af2302f043d2de7db149";
-clientsecret: "7c8d32824d3aa9fd4fed827a87ad1bb809d799b2"; 
-}
+
 
 /*
  * For easier debugging in development mode, you can import the following file

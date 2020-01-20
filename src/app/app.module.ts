@@ -6,13 +6,11 @@ import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import{ ProfileService}from './service/profile.service';
 import { FormsModule} from '@angular/forms';
-import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
-    AboutComponent,
   
   ],
   imports: [
