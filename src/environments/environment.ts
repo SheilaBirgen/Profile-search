@@ -3,8 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  //apiUrl:"https://api.github.com/users/SheilaBirgen?access_token= + apiKey"
 };
+export class ProfileService{
+username :"SheilaBirgen";
+clientid :"af2302f043d2de7db149";
+clientsecret: "5fa3ff267bd52b97d79f188fc9426710579348f0"; 
+}
 
 /*
  * For easier debugging in development mode, you can import the following file
