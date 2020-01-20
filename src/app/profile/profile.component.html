@@ -1,101 +1,72 @@
-<div class="container main">
-    <div class="row">
-        <div class="col-md-12">
-            <form>
-                <div class="row">
-                    <img src="./assets/github logo.png" alt="">
-                    <h2>Github Profile Viewer</h2> 
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Github Username" [(ngModel)]="username" (keyup)="getProfile()"
-                        [ngModelOptions]="{ standalone: true }" />
-                </div>
-                <div class="text-center">
-                    <button class="btn btn-success" value="submit" type="submit" (click)="searchUsers()">
-                        Search Profile
-                    </button>
-                </div>
-            </form>
+<div class="all">
+    <div class="navbar text-center">
+        <div class="row">
+
+            <img src="./assets/githun logo.png" alt="">
+            <h2>
+                GITHUB PROFILE FINDER
+            </h2>
+
         </div>
+
     </div>
-    <div *ngIf="user" class="mt-1">
-        <div class="card">
-            <div class="card-header">
-                <p>{{ users.name }}</p>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="{{ users.avatar_url }}" class="img-fluid" alt="me" />
-                    </div>
-                    <div class="col-md-8">
-                        <div class="about">
-                            <span class="badge badge-primary mr-2">
-                                {{ user.public_repos }} Public Repos</span>
-                            <span class="badge badge-secondary mr-2">{{ user.public_gists }} Gists</span>
-                            <span class="badge badge-success mr-2">
-                                {{ user.followers }} Followers</span>
-                            <span class="badge badge-danger mr-2">
-                                {{ user.following }} Following</span>
-                        </div>
-                        <br />
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <strong>Username:</strong>{{ user.login }}
-                            </li>
-                            <li class="list-group-item">
-                                <strong>Location:</strong>{{ user.location }}
-                            </li>
-                            <li class="list-group-item">
-                                <strong>Email:</strong>{{ user.email }}
-                            </li>
-                            <li class="list-group-item">
-                                <strong>Blog:</strong>{{ user.blog }}
-                            </li>
-                            <li class="list-group-item">
-                                <strong>Member Since: </strong>{{ user.created_at | date }}
-                            </li>
-                        </ul>
-                    </div>
+<div class="container">
+    <!-- <div class="all"> -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="search-class">
+                    <h1 id='users' class="btn btn-outline-primary" (click)="searchUsers = true">SEARCH USER</h1>
                 </div>
-                <br />
-                <a href="{{ user.html_url }}" class="btn btn-outline-info">View On Github</a>
-            </div>
-        </div>
-        <br />
-        <div class="card">
-            <div class="card-header">
-                <h2>Repositories</h2>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div *ngFor="let repo of repos">
-                            <div class="row">
-                                <div class="card m-2" style="width: 100%;">
-                                    <div class="card-body mycard">
-                                        <h5 class="card-title">{{ repo.name }} Project</h5>
-                                        <p class="card-text"></p>
-                                        <div class="col-md-9">
-                                            <h4>{{ repo.name }}</h4>
-                                            <p>{{ repo.description }}</p>
-                                            <a href="{{ repo.html_url }}" target="_blank" class="btn btn-info">View On
-                                                Github</a>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <span class="badge badge-primary mr-1">
-                                                {{ repo.watchers }} Watchers</span>
-                                            <span class="badge badge-secondary mr-1">{{ repo.forks }} Forks</span>
-                                            <span class="badge badge-secondary mr-1"> Created On:
-                                                {{repo.created_at | date}}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <p class="moringa"></p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" [(ngModel)]="username" name="username"
+                            placeholder="Enter Username" (keyup)="getProfile()">
+                    </div>
+                </form>
+
+
+                <div *ngIf="searchUsers" class="d-flex justify-content-sm-between clearfix main-card">
+                    <div class="row avi-panel to-left">
+                        <figure>
+                            <img src="{{user.avatar_url}}" alt="avatar" width="300rem">
+                            <br>
+                            <br>
+                            <figcaption class="text-center">
+                                <a href="{{user.html_url}}">{{ user.login }}</a>
+                                <hr>
+                                <a href="{{user.html_url}}" target="_blank"><button class="btn btn-outline-primary"
+                                        width="5rem">Go to Profile </button></a>
+
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="details to-right">
+                        <!-- <h3>{{ user.name }}</h3> -->
+                        <p class="btn btn-primary">Followers<br><span>{{user.followers}}</span></p>
+                        <br> <p class="btn btn-primary">Following<br><span>{{user.following}}</span></p>
+                        <br><p class="btn btn-primary">Repositories<br><span>{{user.public_repos}}</span></p><br>
+
+                        <p id='repos' class="btn btn-outline-success" (click)="searchUsers = false">View Repositories</p>
+
+                    </div>
+
+                </div>
+
+                <div *ngIf="!searchUsers">
+                    <div class="container repo-row">
+                            <h3 class="btn btn-outline-danger">View user's repositories</h3>
+                        <div *ngFor="let rep of repo" class="card-body text-center" style="width: 500px">
+                            <a class="card-title text-center" href="{{rep.html_url}}" target="_blank">
+                                <hr>
+                                <h3 class="card-text">{{rep.name}}</h3>
+                                <p class="card-text">{{rep.description}}</p>
+                            </a>
+
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
