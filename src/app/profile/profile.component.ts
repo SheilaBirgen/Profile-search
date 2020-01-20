@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import{ ProfileService} from '../service/profile.service';
+import{ ProfileService} from 'src/app/service/profile.service';
 import { Users } from '../users';
+import { Repository } from '../repository';
+
+
 
 
 @Component({
@@ -11,27 +14,39 @@ import { Users } from '../users';
 
 
 export class ProfileComponent implements OnInit {
-  users:Users;
-  userName:string;
+  searchUsers = true;
+
+  user: Users;
+  repo: Repository;
+  username: string;
+  service: any;
 
   constructor(private profileService: ProfileService) {
    }
-    getProfile() {
-    //  this.profileService.getuserName(this.userName);
-     this.profileService.getUser;
-         
-  }
+   getProfile() {
+    this.service.getUsername(this.username);
 
-  searchUsers(){
-    console.log("rtyuiojuhygtfghjkojhgfjk")
+    this.service.getUser();
+    this.user = this.service.user;
+
+    this.service.getRepos(this.username);
+    this.repo = this.service.repo;
+    console.log(this.repo);
+  }
+  switchSearch() {
+    this.searchUsers = !this.searchUsers;
   }
 
   ngOnInit() {
-    this.profileService.getUser();
-    this.users= this.profileService.Users;
+    this.service.getUser();
+    this.user = this.service.user;
+
+    this.service.getRepos(this.username);
+    this.repo = this.service.repo;
     const options = {
-      strings:['Enter your name '],
-    };
-  } 
+      strings: ['Enter your username please.'],
+      
+ };
+  }
 
 }

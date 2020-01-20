@@ -4,7 +4,6 @@ import{ HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
-import{ ProfileService}from './service/profile.service';
 import { FormsModule} from '@angular/forms';
 
 @NgModule({
@@ -19,7 +18,6 @@ import { FormsModule} from '@angular/forms';
     HttpClientModule,
     FormsModule
   ],
-  providers: [ProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
