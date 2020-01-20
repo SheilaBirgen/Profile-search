@@ -9,7 +9,7 @@ export const environment = {
 export class ProfileService{
 username :"SheilaBirgen";
 clientid :"af2302f043d2de7db149";
-clientsecret: "5fa3ff267bd52b97d79f188fc9426710579348f0"; 
+clientsecret: "7c8d32824d3aa9fd4fed827a87ad1bb809d799b2"; 
 }
 
 /*
