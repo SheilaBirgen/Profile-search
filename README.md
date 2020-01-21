@@ -22,7 +22,7 @@ jquery
 The app aims at searching the github  by entering their usernames 
 
 ## Deployment link
-
+https://keen-shaw-7fdcf0.netlify.com/
 
 ## CodeBeatBadge
 
