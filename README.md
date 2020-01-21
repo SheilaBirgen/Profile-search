@@ -2,11 +2,15 @@
 
 This Project is for searching profile in github.One just enters their username and the repositories shows up
 
+## Project Author
+
+Sheila Birgen
+
 ## Technologies used
 Angular CLI
-css
-bootstrap
+Bootstrap
 html
+javascript
 jquery
 
 ## Screenshots
