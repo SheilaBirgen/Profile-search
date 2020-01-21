@@ -1,4 +1,4 @@
-# GithubSearch
+# ProfileSearch
 
 This Project is for searching profile in github.One just enters their username and the repositories shows up
 
@@ -14,6 +14,9 @@ javascript
 jquery
 
 ## Screenshots
+<img src='./assets/git1.png'>
+<img src ='./assets/git2.png'>
+
 
 ## Description
 The app aims at searching the github  by entering their usernames 
@@ -23,7 +26,7 @@ The app aims at searching the github  by entering their usernames
 
 ## CodeBeatBadge
 
-
+[![codebeat badge](https://codebeat.co/badges/81928f41-d921-4e36-a98a-94dbb7378051)](https://codebeat.co/projects/github-com-sheilabirgen-profile-search-master)
 
 ## BDD
 | Behavior | Input    | Output   |

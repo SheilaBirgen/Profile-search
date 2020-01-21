@@ -45,4 +45,4 @@ testem.log
 .DS_Store
 Thumbs.db
 # ignore personal files
-environment/
+.environment
